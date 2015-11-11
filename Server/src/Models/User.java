@@ -12,6 +12,12 @@ public class User {
     private List<byte[]> photos;
     private List<String> friendRequests;
 
+    public User( String username )
+    {
+        this.username = username;
+        this.password = "";
+    }
+
     public User( String username, String password )
     {
         this.username = username;
@@ -38,7 +44,7 @@ public class User {
         return friendRequests;
     }
 
-    boolean addFriend( String username )
+    public boolean addFriend( String username )
     {
         if( !friends.contains( username ) )
         {
@@ -49,7 +55,7 @@ public class User {
             return false;
     }
 
-    boolean removeFriend( String username )
+    public boolean removeFriend( String username )
     {
         if( friends.contains( username ) )
         {
@@ -60,13 +66,13 @@ public class User {
             return false;
     }
 
-    boolean addPhoto( byte[] photo )
+    public boolean addPhoto( byte[] photo )
     {
         photos.add( 0, photo );
         return true;
     }
 
-    boolean addFriendRequest( String username )
+    public boolean addFriendRequest( String username )
     {
         if( !friendRequests.contains( username ))
         {
@@ -77,14 +83,34 @@ public class User {
             return false;
     }
 
-    boolean removeFriendRequest( String username )
+    public boolean removeFriendRequest( String username )
     {
         if( friendRequests.contains( username ) )
         {
-            friendRequests.remove( username );
+            friendRequests.remove(username);
             return true;
         }
         else
             return false;
+    }
+
+    @Override
+    public boolean equals(Object object)
+    {
+        if( object == null || object.getClass() != getClass() ) {
+           return false;
+        } else {
+            User user = (User) object;
+            if( this.username == user.getUsername() )
+                return true;
+            else
+                return false;
+        }
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return this.username.hashCode();
     }
 }
