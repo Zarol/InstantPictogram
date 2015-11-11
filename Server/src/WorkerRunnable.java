@@ -22,17 +22,10 @@ public class WorkerRunnable implements  Runnable {
             InputStream input = clientSocket.getInputStream();
             OutputStream output = clientSocket.getOutputStream();
             output.write(("HTTP/1.1 200 OK\n\n").getBytes());
-            while( true ) {
-                long time = System.currentTimeMillis();
-                output.write(( "Fuck You. " ).getBytes());
-                Thread.sleep( 50 );
-            }
-            //output.close();
-            //input.close();
-            //System.out.println( "Request Processed: " + time );
+            output.write(( "\nRequest processed at: " + System.currentTimeMillis()).getBytes());
+            output.close();
+            input.close();
         } catch( IOException e ) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
