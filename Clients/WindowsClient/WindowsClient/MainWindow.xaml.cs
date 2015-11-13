@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WindowsClient.Messages;
 using WindowsClient.Pages;
 
 namespace WindowsClient
@@ -24,6 +28,29 @@ namespace WindowsClient
         public MainWindow()
         {
             InitializeComponent();
+            sendRequestToServer();
+        }
+
+        public void sendRequestToServer()
+        {
+            try
+            {
+                TcpClient tcpClient = new TcpClient();
+                Console.WriteLine("Connecting...");
+
+                tcpClient.Connect("192.168.1.70", 1337);
+                Console.WriteLine("Connected");
+
+
+                AuthenticationMessage message = new AuthenticationMessage("Zarol", "Password", true);
+
+                Stream stream = tcpClient.GetStream();
+                stream.Write(message.getMessageBytes(), 0, message.getMessageLength());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
         }
     }
 }
