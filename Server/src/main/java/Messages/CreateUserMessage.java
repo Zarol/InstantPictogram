@@ -8,7 +8,7 @@ import javax.json.JsonObjectBuilder;
  * Created by Saharath Kleips on 11/12/2015.
  */
 public class CreateUserMessage {
-    static String MESSAGE_TYPE = "CreateUser";
+    static final String MESSAGE_TYPE = "CreateUser";
 
     public String getUsername() {
         return username;
