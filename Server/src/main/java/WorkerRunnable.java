@@ -25,12 +25,13 @@ public class WorkerRunnable implements  Runnable {
 
             byte[] messageByte = new byte[1024];
             int bytesRead = input.read( messageByte );
-            System.out.println( new String(messageByte,0,bytesRead) );
+            System.out.println( "Message Recieved: " + new String(messageByte,0,bytesRead) );
 
             output.close();
             input.close();
         } catch( IOException e ) {
             e.printStackTrace();
         }
+        System.out.println( "Client disconnected: " + clientSocket.getInetAddress() );
     }
 }
