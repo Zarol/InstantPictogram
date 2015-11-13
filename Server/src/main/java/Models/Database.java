@@ -12,7 +12,7 @@ public class Database {
         return ourInstance;
     }
 
-    private List<User> users;
+    private List<Models.User> users;
 
     private Database() {
 

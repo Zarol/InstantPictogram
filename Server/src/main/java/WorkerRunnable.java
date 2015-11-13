@@ -22,7 +22,7 @@ public class WorkerRunnable implements  Runnable {
             InputStream input = clientSocket.getInputStream();
             OutputStream output = clientSocket.getOutputStream();
             output.write(("HTTP/1.1 200 OK\n\n").getBytes());
-            output.write(( "\nRequest processed at: " + System.currentTimeMillis()).getBytes());
+            output.write(( "Request processed at: " + System.currentTimeMillis()).getBytes());
             output.close();
             input.close();
         } catch( IOException e ) {

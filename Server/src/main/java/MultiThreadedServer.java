@@ -1,3 +1,6 @@
+import Messages.AuthenticationMessage;
+import Messages.CreateUserMessage;
+
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.InetAddress;
@@ -23,12 +26,14 @@ public class MultiThreadedServer implements Runnable{
     public static void main( String args[] )
         throws Exception
     {
+        CreateUserMessage message = new CreateUserMessage( "Zarol", "Inuyasha", true );
+        System.out.println( message.toJson() );
+
         System.out.println( InetAddress.getLocalHost() + ":1337" );
         MultiThreadedServer server = new MultiThreadedServer( 1337, InetAddress.getLocalHost() );
         new Thread( server ).start();
     }
 
-    @Override
     public void run() {
         synchronized( this ){
             this.runningThread = Thread.currentThread();
