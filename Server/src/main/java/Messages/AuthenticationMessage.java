@@ -6,7 +6,7 @@ import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 
 /**
- * Created by Admin on 11/12/2015.
+ * Created by Saharath Kleips on 11/12/2015.
  */
 public class AuthenticationMessage {
     static String MESSAGE_TYPE = "Authentication";
