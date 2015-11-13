@@ -18,11 +18,15 @@ public class WorkerRunnable implements  Runnable {
 
     public void run()
     {
+        System.out.println( "Client connected: " + clientSocket.getInetAddress() );
         try {
             InputStream input = clientSocket.getInputStream();
             OutputStream output = clientSocket.getOutputStream();
-            output.write(("HTTP/1.1 200 OK\n\n").getBytes());
-            output.write(( "Request processed at: " + System.currentTimeMillis()).getBytes());
+
+            byte[] messageByte = new byte[1024];
+            int bytesRead = input.read( messageByte );
+            System.out.println( new String(messageByte,0,bytesRead) );
+
             output.close();
             input.close();
         } catch( IOException e ) {
