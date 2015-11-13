@@ -9,7 +9,7 @@ import javax.json.JsonObjectBuilder;
  * Created by Saharath Kleips on 11/12/2015.
  */
 public class AuthenticationMessage {
-    static String MESSAGE_TYPE = "Authentication";
+    static final String MESSAGE_TYPE = "Authentication";
 
     public String getUsername() {
         return username;
@@ -39,22 +39,28 @@ public class AuthenticationMessage {
     String password;
     boolean authenticated;
 
-    public AuthenticationMessage(String username, String password, boolean authenticated)
-    {
+    public AuthenticationMessage(String username, String password, boolean authenticated) {
         this.username = username;
         this.password = password;
         this.authenticated = authenticated;
     }
 
-    public JsonObject toJson()
-    {
+    public JsonObject toJson() {
         JsonObjectBuilder messageBuilder = Json.createObjectBuilder();
         JsonObjectBuilder thisBuilder = Json.createObjectBuilder();
-        thisBuilder.add( "Username", this.username)
-                   .add( "Password", this.password )
-                   .add( "Authenticated", this.authenticated );
+        thisBuilder.add("Username", this.username)
+                .add("Password", this.password)
+                .add("Authenticated", this.authenticated);
 
-        messageBuilder.add( this.MESSAGE_TYPE, thisBuilder );
+        messageBuilder.add(this.MESSAGE_TYPE, thisBuilder);
         return messageBuilder.build();
+    }
+
+    public byte[] getMessageBytes() {
+        return toJson().toString().getBytes();
+    }
+
+    public int getMessageLength() {
+        return getMessageBytes().length;
     }
 }
