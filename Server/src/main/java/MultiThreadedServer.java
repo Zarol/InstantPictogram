@@ -26,10 +26,7 @@ public class MultiThreadedServer implements Runnable{
     public static void main( String args[] )
         throws Exception
     {
-        CreateUserMessage message = new CreateUserMessage( "Zarol", "Inuyasha", true );
-        System.out.println( message.toJson() );
-
-        System.out.println( InetAddress.getLocalHost() + ":1337" );
+        System.out.println( "Server running on: " + InetAddress.getLocalHost() + ":1337" );
         MultiThreadedServer server = new MultiThreadedServer( 1337, InetAddress.getLocalHost() );
         new Thread( server ).start();
     }
@@ -54,7 +51,6 @@ public class MultiThreadedServer implements Runnable{
                 }
                 throw new RuntimeException( "Error accepting client connection.", e);
             }
-            System.out.println( "Client connected: " + clientSocket.getInetAddress() );
             new Thread( new WorkerRunnable( clientSocket, "Multithreaded Server" ) ).start();
         }
         System.out.println( "Server stopped." );
