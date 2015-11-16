@@ -2,7 +2,7 @@
 ## Saharath Kleips
 Originally programmed as a CPE 400 Computer Communication Networks final project (November 23rd, 2015).
 
-Currently the server simply accepts messages and outputs them to the console. The client sends a JSON "Authentication Message" on load.
+Currently the server is able to accept messages to create a user, and authenticate users. The client simply sends an authentication request on load.
 
 This project is designed to display client-server interactions, APIs, and restricted access to data. The project uses Java as its server and currently uses C#.NET with WPF forms as its Window's client UI. The goal is to develop an API so client applications may be ported to Linux, OSX, iOS, Android, and Web.
 
