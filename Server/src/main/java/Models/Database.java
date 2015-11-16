@@ -1,6 +1,6 @@
 package Models;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by Saharath Kleips on 11/11/2015.
@@ -12,10 +12,24 @@ public class Database {
         return ourInstance;
     }
 
-    private List<Models.User> users;
+    private static ArrayList<User> users;
 
     private Database() {
+        users = new ArrayList<User>();
+    }
 
+    public boolean authenticateUser( String username, String password )
+    {
+        User user = getUser( username );
+        if( user != null )
+        {
+            if( user.getPassword().equals( password ) )
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
     }
 
     public boolean containsUser( String username )
@@ -46,7 +60,7 @@ public class Database {
             return null;
     }
 
-    public List<String> getUserFriends( String username )
+    public ArrayList<String> getUserFriends( String username )
     {
         User user = getUser( username );
         if( user != null )
@@ -55,7 +69,7 @@ public class Database {
             return null;
     }
 
-    public List<byte[]> getUserPhotos( String username )
+    public ArrayList<byte[]> getUserPhotos( String username )
     {
         User user = getUser( username );
         if( user != null )
@@ -64,7 +78,7 @@ public class Database {
             return null;
     }
 
-    public List<String> getUserFriendRequests( String username )
+    public ArrayList<String> getUserFriendRequests( String username )
     {
         User user = getUser( username );
         if( user != null )
