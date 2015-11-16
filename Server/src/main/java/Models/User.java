@@ -1,6 +1,6 @@
 package Models;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by Saharath Kleips on 11/11/2015.
@@ -8,9 +8,9 @@ import java.util.List;
 public class User {
     private String username;
     private String password;
-    private List<String> friends;
-    private List<byte[]> photos;
-    private List<String> friendRequests;
+    private ArrayList<String> friends;
+    private ArrayList<byte[]> photos;
+    private ArrayList<String> friendRequests;
 
     public User( String username )
     {
@@ -32,15 +32,15 @@ public class User {
         return password;
     }
 
-    public List<String> getFriends() {
+    public ArrayList<String> getFriends() {
         return friends;
     }
 
-    public List<byte[]> getPhotos() {
+    public ArrayList<byte[]> getPhotos() {
         return photos;
     }
 
-    public List<String> getFriendRequests() {
+    public ArrayList<String> getFriendRequests() {
         return friendRequests;
     }
 
@@ -101,7 +101,7 @@ public class User {
            return false;
         } else {
             User user = (User) object;
-            if( this.username == user.getUsername() )
+            if( this.username.equals( user.getUsername()) )
                 return true;
             else
                 return false;
