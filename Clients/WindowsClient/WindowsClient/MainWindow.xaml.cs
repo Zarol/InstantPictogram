@@ -25,24 +25,33 @@ namespace WindowsClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        String SERVER_ADDRESS = "192.168.1.70";
+        int SERVER_PORT = 1337;
+
+        Page loginPage;
+        Page accountCreationPage;
+        Page developerSettingsPage;
+
         public MainWindow()
         {
+            loginPage = new Login();
+            accountCreationPage = new AccountCreation();
+            developerSettingsPage = new DeveloperSettings();
             InitializeComponent();
-            sendRequestToServer();
+            frameMain.Navigate(loginPage);
+
+            AuthenticationMessage authMessage = new AuthenticationMessage("Zarol", "12345", false);
+            sendRequestToServer(authMessage);
         }
 
-        public void sendRequestToServer()
+        public String sendRequestToServer(Message message)
         {
             try
             {
                 TcpClient tcpClient = new TcpClient();
-                Console.WriteLine("Connecting...");
-
-                tcpClient.Connect("192.168.1.70", 1337);
-                Console.WriteLine("Connected");
-
-
-                AuthenticationMessage message = new AuthenticationMessage("Zarol", "12345", false);
+                tcpClient.Connect(SERVER_ADDRESS, SERVER_PORT);
+                Console.WriteLine("Server Connected: " + tcpClient.Client.RemoteEndPoint.ToString());
+                Console.WriteLine("Request: " + message.toJson().ToString(Formatting.None));
 
                 Stream stream = tcpClient.GetStream();
                 stream.Write(message.getMessageBytes(), 0, message.getMessageLength());
@@ -52,11 +61,14 @@ namespace WindowsClient
 
                 String reply = System.Text.Encoding.Default.GetString(messageByte);
 
-                Console.WriteLine(reply);
+                Console.WriteLine("Reply: " + reply);
+                Console.WriteLine("Server Disconnected: " + tcpClient.Client.RemoteEndPoint.ToString());
+                return reply;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.StackTrace);
+                return null;
             }
         }
     }
