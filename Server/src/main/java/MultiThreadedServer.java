@@ -1,5 +1,6 @@
 import Messages.AuthenticationMessage;
 import Messages.CreateUserMessage;
+import Models.Database;
 
 import java.io.IOException;
 import java.io.PrintStream;
@@ -26,6 +27,10 @@ public class MultiThreadedServer implements Runnable{
     public static void main( String args[] )
         throws Exception
     {
+        // ADDING TEMPORARY USERS
+        Database.getInstance().addUser( "Zarol", "12345" );
+        // ADDING TEMPORARY USERS
+
         System.out.println( "Server running on: " + InetAddress.getLocalHost() + ":1337" );
         MultiThreadedServer server = new MultiThreadedServer( 1337, InetAddress.getLocalHost() );
         new Thread( server ).start();
