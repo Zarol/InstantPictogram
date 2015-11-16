@@ -1,28 +1,35 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 
 namespace WindowsClient.Messages
 {
-    class AuthenticationMessage
+    class AuthenticationMessage : Message
     {
-        static String MESSAGE_TYPE = "Authentication";
+        const String MESSAGE_TYPE = "Authentication";
+        const String USERNAME_KEY = "Username";
+        const String PASSWORD_KEY = "Password";
+        const String AUTHENTICATED_KEY = "Authenticated";
 
-        public String getUsername() { return username; }
-
-        public void setUsername(String username) { this.username = username; }
-
-        public String getPassword() { return password; }
-
-        public void setPassword(String password) { this.password = password; }
-
-        public Boolean isAuthenticated() { return authenticated; }
-
-        public void setAuthenticated(Boolean authenticated) { this.authenticated = authenticated; }
+        public String Username
+        {
+            get { return username; }
+            set { username = value; }
+        }
+        public String Password
+        {
+            get { return password; }
+            set { password = value; }
+        }
+        public Boolean Authenticated
+        {
+            get { return authenticated; }
+            set { authenticated = value; }
+        }
 
         String username;
         String password;
@@ -35,13 +42,21 @@ namespace WindowsClient.Messages
             this.authenticated = authenticated;
         }
 
+        public AuthenticationMessage(JObject jobject)
+        {
+            JObject contents = JObject.Parse(jobject.GetValue(MESSAGE_TYPE).ToString());
+            this.username = contents.GetValue(USERNAME_KEY).ToString();
+            this.password = contents.GetValue(PASSWORD_KEY).ToString();
+            this.authenticated = Convert.ToBoolean(contents.GetValue(AUTHENTICATED_KEY).ToString());
+        }
+
         public JObject toJson()
         {
             JObject messageBuilder = new JObject();
             JObject thisBuilder = new JObject();
-            thisBuilder.Add("Username", this.username);
-            thisBuilder.Add("Password", this.password);
-            thisBuilder.Add("Authenticated", this.authenticated);
+            thisBuilder.Add(USERNAME_KEY, this.username);
+            thisBuilder.Add(PASSWORD_KEY, this.password);
+            thisBuilder.Add(AUTHENTICATED_KEY, this.authenticated);
 
             messageBuilder.Add( MESSAGE_TYPE, thisBuilder);
             return messageBuilder;
