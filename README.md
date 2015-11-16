@@ -22,21 +22,21 @@ Currently the project stores the database of usernames, passwords, friends, pend
         <tr>
             <td> Authentication </td>
             <td> 
-                {  
-                "Authentication":{  
-                "Username":"STRING",  
-                "Password":"STRING",  
-                "Authenticated":BOOLEAN  
-                }  
+                {<br>
+                "Authentication":{<br>
+                "Username":"STRING",<br>
+                "Password":"STRING",<br>
+                "Authenticated":BOOLEAN<br>
+                }<br>
                 } 
             </td>
             <td> 
-                {  
-                "Authentication":{  
-                "Username":"SaharathKleips",  
-                "Password":"12345",  
-                "Authenticated":true  
-                }  
+                {<br>
+                "Authentication":{<br>
+                "Username":"SaharathKleips",<br>
+                "Password":"12345",<br>
+                "Authenticated":true<br>
+                }<br>
                 } 
             </td>
             <td> Checks if the username and password combination is valid. "Authenticated" will be true if valid, false if otherwise. </td>
@@ -44,21 +44,21 @@ Currently the project stores the database of usernames, passwords, friends, pend
         <tr>
             <td> Create User </td>
             <td> 
-                {\n
-                "CreateUser":{  
-                "Username":"STRING",  
-                "Password":"STRING",  
-                "Created":BOOLEAN  
-                }  
+                {<br>
+                "CreateUser":{<br>
+                "Username":"STRING",<br>
+                "Password":"STRING",<br>
+                "Created":BOOLEAN<br>
+                }<br>
                 } 
             </td>
             <td> 
-                {  
-                "CreateUser":{  
-                "Username":"SaharathKleips",  
-                "Password":"12345",  
-                "Created":true  
-                }  
+                {<br>
+                "CreateUser":{<br>
+                "Username":"SaharathKleips",<br>
+                "Password":"12345",<br>
+                "Created":true<br>
+                }<br>
                 } 
             </td>
             <td> Attempts to create a user with the requested username / password. "Created" will be true if the user has been created, false otherwise.</td>
