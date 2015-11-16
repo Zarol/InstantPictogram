@@ -10,6 +10,24 @@ The project itself mirrors [Instagram](https://instagram.com/) in the sense that
 
 Currently the project stores the database of usernames, passwords, friends, pending friend requests, and images into RAM. However, this will be changed to a real database in a future iteration.
 
+## JSON API
+<table>
+    <tbody>
+        <tr>
+            <th> Name </th>
+            <th> Request / Response </th>
+            <th> Example </th>
+            <th> Description </th>
+        </tr>
+        <tr>
+            <td> Authentication </td>
+            <td> {"Authentication":{"Username":"STRING","Password":"STRING","Authenticated":BOOLEAN}} </td>
+            <td> {"Authentication":{"SaharathKleips":"STRING","12345":"STRING","Authenticated":false}} </td>
+            <td> Checks if the username and password combination is valid. "Authenticated" will be true if valid, false if otherwise. </td>
+        </tr>
+    </tbody>
+</table>
+
 ### Contact Information
 **LinkedIn:** http://www.linkedin.com/in/SaharathKleips  
 **Email:** SaharathKleips@nevada.unr.edu
