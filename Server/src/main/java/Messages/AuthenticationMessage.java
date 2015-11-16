@@ -45,6 +45,14 @@ public class AuthenticationMessage {
         this.authenticated = authenticated;
     }
 
+    public AuthenticationMessage( JsonObject object )
+    {
+        JsonObject contents = JsonHelper.jsonFromString( object.get("Authentication").toString() );
+        this.username = contents.getString("Username");
+        this.password = contents.getString("Password");
+        this.authenticated = Boolean.parseBoolean(contents.get("Authenticated").toString());
+    }
+
     public JsonObject toJson() {
         JsonObjectBuilder messageBuilder = Json.createObjectBuilder();
         JsonObjectBuilder thisBuilder = Json.createObjectBuilder();
