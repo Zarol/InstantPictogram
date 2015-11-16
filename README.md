@@ -41,6 +41,28 @@ Currently the project stores the database of usernames, passwords, friends, pend
             </td>
             <td> Checks if the username and password combination is valid. "Authenticated" will be true if valid, false if otherwise. </td>
         </tr>
+        <tr>
+            <td> Create User </td>
+            <td> 
+                {  
+                "CreateUser":{  
+                "Username":"STRING",  
+                "Password":"STRING",  
+                "Created":BOOLEAN  
+                }  
+                } 
+            </td>
+            <td> 
+                {  
+                "CreateUser":{  
+                "Username":"SaharathKleips",  
+                "Password":"12345",  
+                "Created":true  
+                }  
+                } 
+            </td>
+            <td> Attempts to create a user with the requested username / password. "Created" will be true if the user has been created, false otherwise.</td>
+        </tr>
     </tbody>
 </table>
 
