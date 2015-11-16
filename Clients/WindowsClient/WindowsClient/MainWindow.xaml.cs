@@ -42,10 +42,17 @@ namespace WindowsClient
                 Console.WriteLine("Connected");
 
 
-                AuthenticationMessage message = new AuthenticationMessage("Zarol", "Password", true);
+                AuthenticationMessage message = new AuthenticationMessage("Zarol", "12345", false);
 
                 Stream stream = tcpClient.GetStream();
                 stream.Write(message.getMessageBytes(), 0, message.getMessageLength());
+
+                byte[] messageByte = new byte[1024];
+                stream.Read(messageByte, 0, 1024);
+
+                String reply = System.Text.Encoding.Default.GetString(messageByte);
+
+                Console.WriteLine(reply);
             }
             catch (Exception e)
             {
