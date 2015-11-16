@@ -21,8 +21,24 @@ Currently the project stores the database of usernames, passwords, friends, pend
         </tr>
         <tr>
             <td> Authentication </td>
-            <td> {"Authentication":{"Username":"STRING","Password":"STRING","Authenticated":BOOLEAN}} </td>
-            <td> {"Authentication":{"SaharathKleips":"STRING","12345":"STRING","Authenticated":false}} </td>
+            <td> 
+                {  
+                "Authentication":{  
+                "Username":"STRING",  
+                "Password":"STRING",  
+                "Authenticated":BOOLEAN  
+                }  
+                } 
+            </td>
+            <td> 
+                {  
+                "Authentication":{  
+                "Username":"SaharathKleips",  
+                "Password":"12345",  
+                "Authenticated":true  
+                }  
+                } 
+            </td>
             <td> Checks if the username and password combination is valid. "Authenticated" will be true if valid, false if otherwise. </td>
         </tr>
     </tbody>
