@@ -114,16 +114,6 @@ Currently the project stores the database of usernames, passwords, friends, pend
             <td></td>
         </tr>
         <tr>
-            <td> Add User's Friend </td>
-            <td> 
-                
-            </td>
-            <td> 
-                
-            </td>
-            <td></td>
-        </tr>
-        <tr>
             <td> Remove User's Friend </td>
             <td> 
                 
