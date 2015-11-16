@@ -8,8 +8,11 @@ import javax.json.JsonObjectBuilder;
 /**
  * Created by Saharath Kleips on 11/12/2015.
  */
-public class AuthenticationMessage {
+public class AuthenticationMessage implements Message{
     static final String MESSAGE_TYPE = "Authentication";
+    static final String USERNAME_KEY = "Username";
+    static final String PASSWORD_KEY = "Password";
+    static final String AUTHENTICATED_KEY = "Authenticated";
 
     public String getUsername() {
         return username;
@@ -47,18 +50,18 @@ public class AuthenticationMessage {
 
     public AuthenticationMessage( JsonObject object )
     {
-        JsonObject contents = JsonHelper.jsonFromString( object.get("Authentication").toString() );
-        this.username = contents.getString("Username");
-        this.password = contents.getString("Password");
-        this.authenticated = Boolean.parseBoolean(contents.get("Authenticated").toString());
+        JsonObject contents = JsonHelper.jsonFromString( object.get(MESSAGE_TYPE).toString() );
+        this.username = contents.getString(USERNAME_KEY);
+        this.password = contents.getString(PASSWORD_KEY);
+        this.authenticated = Boolean.parseBoolean(contents.get(AUTHENTICATED_KEY).toString());
     }
 
     public JsonObject toJson() {
         JsonObjectBuilder messageBuilder = Json.createObjectBuilder();
         JsonObjectBuilder thisBuilder = Json.createObjectBuilder();
-        thisBuilder.add("Username", this.username)
-                .add("Password", this.password)
-                .add("Authenticated", this.authenticated);
+        thisBuilder.add(USERNAME_KEY, this.username)
+                .add(PASSWORD_KEY, this.password)
+                .add(AUTHENTICATED_KEY, this.authenticated);
 
         messageBuilder.add(this.MESSAGE_TYPE, thisBuilder);
         return messageBuilder.build();
