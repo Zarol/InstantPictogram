@@ -63,6 +63,106 @@ Currently the project stores the database of usernames, passwords, friends, pend
             </td>
             <td> Attempts to create a user with the requested username / password. "Created" will be true if the user has been created, false otherwise.</td>
         </tr>
+        <tr>
+            <td> Get User's Pending Friends </td>
+            <td> 
+                
+            </td>
+            <td> 
+                
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td> Get User's Friends </td>
+            <td> 
+                
+            </td>
+            <td> 
+                
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td> Get User's Photos </td>
+            <td> 
+                
+            </td>
+            <td> 
+                
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td> Add User's Pending Friend </td>
+            <td> 
+                
+            </td>
+            <td> 
+                
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td> Remove User's Pending Friend </td>
+            <td> 
+                
+            </td>
+            <td> 
+                
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td> Add User's Friend </td>
+            <td> 
+                
+            </td>
+            <td> 
+                
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td> Remove User's Friend </td>
+            <td> 
+                
+            </td>
+            <td> 
+                
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td> Add User's Photo </td>
+            <td> 
+                
+            </td>
+            <td> 
+                
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td> Establish Friendship </td>
+            <td> 
+                
+            </td>
+            <td> 
+                
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td> Query Usernames </td>
+            <td> 
+                
+            </td>
+            <td> 
+                
+            </td>
+            <td></td>
+        </tr>
     </tbody>
 </table>
 
