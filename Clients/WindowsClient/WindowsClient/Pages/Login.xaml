@@ -8,12 +8,12 @@
 	Title="Login" Background="White">
     <Grid>
         <Label Content="instant" HorizontalAlignment="Center" Margin="0,0,160,300" VerticalAlignment="Center" FontFamily="MV Boli" FontSize="36"/>
-        <Label x:Name="lbPictogram"  Content="Pictogram" HorizontalAlignment="Center" Margin="160,0,0,300" VerticalAlignment="Center" FontFamily="Minion Pro" FontSize="48" MouseDoubleClick="lbPictogram_MouseDoubleClick"/>
+        <Label x:Name="lbPictogram"  Content="Pictogram" HorizontalAlignment="Center" Margin="160,0,0,300" VerticalAlignment="Center" FontFamily="Minion Pro" FontSize="48"/>
         <Label Content="Login" HorizontalAlignment="Left" Margin="100,0,0,150" VerticalAlignment="Center" FontFamily="Myriad Pro" FontSize="24"/>
         <TextBox x:Name="txtboxLogin" HorizontalAlignment="Stretch" Height="25" Margin="185,0,100,150" TextWrapping="NoWrap" VerticalAlignment="Center" FontFamily="Myriad Pro" FontSize="20"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="60,0,0,50" VerticalAlignment="Center" FontFamily="Myriad Pro" FontSize="24"/>
         <PasswordBox x:Name="passboxPassword" HorizontalAlignment="Stretch" Height="25" Margin="185,0,100,50" VerticalAlignment="Center" FontFamily="Myriad Pro" FontSize="20"/>
-        <Button x:Name="btnCreateAccount" Content="Create Account" HorizontalAlignment="Center" Margin="0,30,70,0" VerticalAlignment="Center" Width="150" FontFamily="Myriad Pro" FontSize="20" Click="btnCreateAccount_Click"/>
-        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Center" Margin="250,30,0,0" VerticalAlignment="Center" Width="150" FontFamily="Myriad Pro" FontSize="20" Click="btnLogin_Click"/>
+        <Button x:Name="btnCreateAccount" Content="Create Account" HorizontalAlignment="Center" Margin="0,30,70,0" VerticalAlignment="Center" Width="150" FontFamily="Myriad Pro" FontSize="20"/>
+        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Center" Margin="250,30,0,0" VerticalAlignment="Center" Width="150" FontFamily="Myriad Pro" FontSize="20"/>
     </Grid>
 </Page>

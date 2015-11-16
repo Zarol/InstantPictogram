@@ -24,15 +24,5 @@ namespace WindowsClient.Pages
         {
             InitializeComponent();
         }
-
-        private void btnSubmit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

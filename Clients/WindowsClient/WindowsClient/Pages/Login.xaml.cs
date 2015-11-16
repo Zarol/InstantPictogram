@@ -24,20 +24,5 @@ namespace WindowsClient.Pages
         {
             InitializeComponent();
         }
-
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnCreateAccount_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void lbPictogram_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-        }
     }
 }
