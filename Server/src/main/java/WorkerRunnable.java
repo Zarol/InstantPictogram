@@ -11,6 +11,9 @@ import java.net.Socket;
  * Created by Saharath Kleips on 11/10/2015.
  */
 public class WorkerRunnable implements  Runnable {
+    static final String AUTHENTICATION_MESSAGE = "Authentication";
+    static final String CREATEUSER_MESSAGE = "CreateUser";
+
     protected Socket clientSocket = null;
     protected String serverText = null;
 
@@ -35,10 +38,17 @@ public class WorkerRunnable implements  Runnable {
             // Send Reply
             JsonObject message = JsonHelper.jsonFromString(new String(messageByte, 0, bytesRead));
             String messageType = message.keySet().iterator().next();
-            if( messageType.equals( "Authentication" ) )
+            if( messageType.equals( AUTHENTICATION_MESSAGE ) )
             {
                 AuthenticationMessage reply = new AuthenticationMessage( message );
                 reply.setAuthenticated(Database.getInstance().authenticateUser(reply.getUsername(), reply.getPassword()));
+                System.out.println( "Reply: " + reply.toJson().toString() );
+                output.write( reply.getMessageBytes(), 0, reply.getMessageLength() );
+            }
+            else if( messageType.equals( CREATEUSER_MESSAGE ))
+            {
+                CreateUserMessage reply = new CreateUserMessage( message );
+                reply.setCreated( Database.getInstance().addUser( reply.getUsername(), reply.getPassword() ));
                 System.out.println( "Reply: " + reply.toJson().toString() );
                 output.write( reply.getMessageBytes(), 0, reply.getMessageLength() );
             }
