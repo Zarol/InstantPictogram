@@ -44,7 +44,7 @@ Currently the project stores the database of usernames, passwords, friends, pend
         <tr>
             <td> Create User </td>
             <td> 
-                {  
+                {\n
                 "CreateUser":{  
                 "Username":"STRING",  
                 "Password":"STRING",  
