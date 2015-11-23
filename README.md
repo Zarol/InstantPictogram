@@ -1,6 +1,6 @@
 # InstantPictogram
 ## Saharath Kleips
-Originally programmed as a CPE 400 Computer Communication Networks final project (November 23rd, 2015).
+Originally programmed as a CPE 400 Computer Communication Networks final project. Turns out I misinterpreted "Social Network." It was supposed to be like... Social Networking (routing algorithm).
 
 Currently the server is able to accept messages to create a user, and authenticate users. The client simply sends an authentication request on load.
 
